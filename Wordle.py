@@ -132,7 +132,7 @@ def FullRank():
         ranking += 1
         print(ranking, k, round(final[k], 3), round(percentage_score[k], 2))
 
-def CalcGame(): # 00010, 00020, 00000 
+def CalcGame(): # 00010, 00020, 00000
     solo_word = True # Game config
     hard_mode = False # Game config
     answers = []
