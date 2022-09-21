@@ -133,23 +133,23 @@ def FullRank():
         print(ranking, k, round(final[k], 3), round(percentage_score[k], 2))
 
 def CalcGame(): # 00010, 00020, 00000 
-    solo_word = True
-    hard_mode = False
+    solo_word = True # Game config
+    hard_mode = False # Game config
     answers = []
     if solo_word:
         answers.append(random.choice(pa_list))
-        answers = ['mourn'] #nymph
+        # answers = ['mourn'] # Game config
     else:
         answers = pa_list
         shit_dict = {}
         attempts_score = {'1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0}
     for answer in answers:
         if solo_word:
-            print(answer)
+            print("Answer:", answer)
         attempts = 1
         words_score = {}
         crt_list = pa_list
-        starting_words = ['march']
+        starting_words = ['march'] # Game config
         start_word = 1
         last_word = starting_words[0]
         game_end = False
@@ -214,14 +214,14 @@ def CalcGame(): # 00010, 00020, 00000
 def GetInput():
     # import time
     from termcolor import cprint
-    random_first_world = False
+    random_first_word = False # Game config
     answer = random.choice(pa_list)
     attempts = 6
     game_end = False
     print('')
     print('\t', attempts, '| - - - - -', end=' ')
     while not game_end and attempts != 0:
-        if not random_first_world or attempts != 6:
+        if not random_first_word or attempts != 6:
             player_word = input('| guess: ')
         else:
             player_word = random.choice(pa_list+ag_list)
@@ -250,9 +250,9 @@ def GetInput():
         cprint(answer, 'green')
 
 def GetCheat():
-    answer = 'ulcer'
+    answer = 'plate' # Game Config
     anagrams = {}
-    second_chance = False
+    # second_chance = False
     while len(anagrams) == 0:
         for word in pa_list+ag_list:
             yellow_letters, green_letters = calc_yellow_and_green(word, answer, need_green=True)
@@ -264,7 +264,7 @@ def GetCheat():
     for i in anagrams:
         print(i, len(anagrams[i]), anagrams[i])
 
-modes = ['input', 'full_rank', 'calc_game', 'cheat']
+modes = ['input', 'calc_game', 'cheat', 'full_rank']
 set_mode = modes[0]
 if set_mode == 'full_rank':
     FullRank()
